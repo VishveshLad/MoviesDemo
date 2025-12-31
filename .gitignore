@@ -1,0 +1,48 @@
+# Xcode
+#
+## User settings
+xcuserdata/
+
+## Build artifacts
+build/
+DerivedData/
+
+## App packaging
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+## Xcode temporary files
+*.moved-aside
+*.pbxuser
+!default.pbxuser
+*.mode1v3
+!default.mode1v3
+*.mode2v3
+!default.mode2v3
+*.perspectivev3
+!default.perspectivev3
+*.hmap
+*.xccheckout
+*.xcuserdatad
+
+## Playgrounds
+timeline.xctimeline
+playground.xcworkspace
+
+# Dependency Managers (uncomment if you use them and choose to ignore)
+# CocoaPods
+# Pods/ 
+# 
+# Swift Package Manager
+# .swiftpm/
+# Packages/
+# .build/
+# 
+# Carthage
+# Carthage/Build/
+
+# Other OS/Editor files
+.DS_Store # macOS system file
+*.swp     # Vim swap files
+.idea/    # JetBrains IDE files
