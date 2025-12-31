@@ -8,6 +8,8 @@
 import XCTest
 @testable import MoviesDemo
 
+//MARK: DO NEED TO USE AS TEST IT'S JUST SAMPLE IF WE WANT TO ACTAL API CALL
+
 @MainActor final class MovieServiceAPITests: XCTestCase {
 
     private var service: MovieService!
