@@ -49,9 +49,9 @@ struct MoviesListView: View {
                                     .clipped()
                                     .cornerRadius(6)
                             case .failure:
-                                placeholderImage.frame(width: 60,height: 90)
+                                PlaceholderImage().frame(width: 60,height: 90)
                             default:
-                                placeholderImage.frame(width: 60,height: 90)
+                                PlaceholderImage().frame(width: 60,height: 90)
                             }
                         }
                         VStack(alignment: .leading, spacing: 6) {

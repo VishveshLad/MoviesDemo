@@ -42,9 +42,9 @@ struct MovieDetailView: View {
                                 .scaledToFit()
                                 .cornerRadius(12)
                         case .failure:
-                            placeholderImage.frame(height: 250)
+                            PlaceholderImage().frame(height: 250)
                         @unknown default:
-                            placeholderImage
+                            PlaceholderImage()
                                 .frame(height: 250)
                         }
                     }
@@ -74,13 +74,4 @@ struct MovieDetailView: View {
 
 #Preview {
     MovieDetailView(viewModel: MovieDetailViewModel(movieId: 1, service: MovieService()))
-}
-
-public var placeholderImage: some View {
-    Image(systemName: "photo")
-        .resizable()
-        .scaledToFit()
-        .foregroundStyle(Color.gray.opacity(0.3))
-        .clipped()
-        .cornerRadius(6)
 }

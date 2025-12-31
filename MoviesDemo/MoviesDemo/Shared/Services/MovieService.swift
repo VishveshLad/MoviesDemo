@@ -20,19 +20,11 @@ public final class MovieService: MovieServiceProtocol{
     }
     
     public func fetchMovies() async throws -> [Movie] {
-        guard let url = APIEndpoints.movies() else {
-            throw NetworkError.invalidURL
-        }
-        
-        return try await network.request(url)
+        return try await network.request(.shows)
     }
     
     public func fetchMovieDetails(id: Int) async throws -> Movie {
-        guard let url = APIEndpoints.movieDetails(id: id) else {
-            throw NetworkError.invalidURL
-        }
-        
-        return try await network.request(url)
+        return try await network.request(.showDetails(id: id))
     }
 }
 

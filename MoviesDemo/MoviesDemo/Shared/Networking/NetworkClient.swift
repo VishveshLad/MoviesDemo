@@ -8,7 +8,7 @@
 import Foundation
 
 public protocol NetworkClientProtocol {
-    func request<T: Decodable>(_ url: URL) async throws -> T
+    func request<T: Decodable>(_ endPoint: APIEndpoints) async throws -> T
 }
 
 public final class NetworkClient: NetworkClientProtocol {
@@ -20,8 +20,12 @@ public final class NetworkClient: NetworkClientProtocol {
         self.decoder = JSONDecoder()
     }
     
-    public func request<T: Decodable>(_ url: URL) async throws -> T {
-        let (data, response) = try await session.data(from: url)
+    public func request<T: Decodable>(_ endPoint: APIEndpoints) async throws -> T {
+        var request = URLRequest(url: endPoint.url)
+        request.httpMethod = endPoint.method.rawValue
+        request.allHTTPHeaderFields = endPoint.headers
+        
+        let (data, response) = try await session.data(for: request)
         
         guard let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 else {
             throw NetworkError.invalidResponse
