@@ -10,11 +10,18 @@ import SwiftUI
 internal import Combine
 
 final class AppContainer: ObservableObject {
-    let router: Router
+    // Core
+    let router: AppRouter
+    let network: NetworkClientProtocol
+    
+    // Feature services
     let movieService: MovieServiceProtocol
     
-    init(router: Router, movieService: MovieServiceProtocol) {
+    init(router: AppRouter, network: NetworkClientProtocol = NetworkClient()) {
+        // Core
         self.router = router
-        self.movieService = movieService    
+        self.network = network
+        // Feature services
+        self.movieService = MovieService(network: network)
     }
 }
