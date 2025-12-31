@@ -27,16 +27,16 @@ private extension RootView {
     private var rootView: some View {
         switch router.root {
         case .movieList:
-            MoviesListView(viewModel: MoviesListViewModel(service: container.movieService))
+            MoviesListView(viewModel: MoviesListViewModel(service: MovieService(network: container.network)))
         }
     }
     @ViewBuilder
     func destination(for route: AppRouter.AppRoute) -> some View {
         switch route {
         case .movieList:
-            MoviesListView(viewModel: MoviesListViewModel(service: container.movieService))
+            MoviesListView(viewModel: MoviesListViewModel(service: MovieService(network: container.network)))
         case .movieDetails(id: let id):
-            MovieDetailView(viewModel: MovieDetailViewModel(movieId: id, service: container.movieService))
+            MovieDetailView(viewModel: MovieDetailViewModel(movieId: id, service: MovieService(network: container.network)))
         }
     }
 }

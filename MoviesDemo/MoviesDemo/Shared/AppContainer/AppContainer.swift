@@ -14,14 +14,9 @@ final class AppContainer: ObservableObject {
     let router: AppRouter
     let network: NetworkClientProtocol
     
-    // Feature services
-    let movieService: MovieServiceProtocol
-    
     init(router: AppRouter, network: NetworkClientProtocol = NetworkClient()) {
         // Core
         self.router = router
         self.network = network
-        // Feature services
-        self.movieService = MovieService(network: network)
     }
 }
