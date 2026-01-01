@@ -17,6 +17,9 @@ struct RootView: View {
                 .navigationDestination(for: AppRouter.AppRoute.self) { route in
                     destination(for: route)
                 }
+        }.onChange(of: router.path) { _, _ in
+            print("###### PATH CHANGED ######")
+            router.syncAfterNativePop()
         }
     }
 }
@@ -37,6 +40,8 @@ private extension RootView {
             MoviesListView(viewModel: MoviesListViewModel(service: MovieService(network: container.network)))
         case .movieDetails(id: let id):
             MovieDetailView(viewModel: MovieDetailViewModel(movieId: id, service: MovieService(network: container.network)))
+        case .moreDetails(id: let id):
+            MoreDetails(movieId: id)
         }
     }
 }

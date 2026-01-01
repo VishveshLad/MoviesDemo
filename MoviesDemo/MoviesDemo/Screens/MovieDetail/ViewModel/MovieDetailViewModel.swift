@@ -33,4 +33,8 @@ final class MovieDetailViewModel: ObservableObject {
             state = .error(error.localizedDescription)
         }
     }
+    
+    func getMovieId() -> Int {
+        return self.movieId
+    }
 }

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct MovieDetailView: View {
+    @EnvironmentObject private var container: AppContainer
     @StateObject var viewModel: MovieDetailViewModel
     
     init(viewModel: MovieDetailViewModel) {
@@ -50,7 +51,17 @@ struct MovieDetailView: View {
                     }
                 }.padding()
                 VStack(alignment: .leading, spacing: 16) {
-                    
+                    Button {
+                        container.router.push(.moreDetails(id: viewModel.getMovieId()))
+                    } label: {
+                        Text("More Details")
+                            .font(.title)
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                            .background(.yellow)
+                            .cornerRadius(10)
+                    }
+
                     Text(movie.name)
                         .font(.title.bold())
 
