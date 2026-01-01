@@ -12,7 +12,7 @@ struct RootView: View {
     @EnvironmentObject var router: AppRouter
     
     var body: some View {
-        NavigationStack(path: $router.path){
+        NavigationStack(path: $router.path) {
             rootView
                 .navigationDestination(for: AppRouter.AppRoute.self) { route in
                     destination(for: route)
@@ -49,4 +49,3 @@ private extension RootView {
         .environmentObject(router)
         .environmentObject(container)
 }
-

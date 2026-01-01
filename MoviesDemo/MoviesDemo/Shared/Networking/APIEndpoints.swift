@@ -35,13 +35,13 @@ public enum APIEndpoints {
     
     // MARK: - Headers
     var headers: [String: String] {
-        ["Accept":"application/json"]
+        ["Accept": "application/json"]
     }
     
     // MARK: - HTTP Method
     var method: HTTPMethod {
         switch self {
-        case .shows, .showDetails(id: _):
+        case .shows, .showDetails:
             return .get
         }
     }

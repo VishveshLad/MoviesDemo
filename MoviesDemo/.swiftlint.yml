@@ -1,0 +1,41 @@
+# Configuration for SwiftLint
+# Learn more at: realm.github.io
+
+# WARNING THRESHOLD: Global setting that turns ALL warnings into build errors
+# if the total number of warnings in the project meets or exceeds this value.
+warning_threshold: 15
+
+# Disabled rules: Rule identifiers to exclude from running
+disabled_rules:
+  - trailing_whitespace
+  - line_length
+  - type_body_length
+  - file_length
+
+# Opt-in rules: Rules that are not enabled by default but are highly recommended
+opt_in_rules:
+  - empty_count
+  - explicit_init
+  - closure_spacing
+  - sorted_imports
+  - private_outlet
+  - force_unwrapping
+  - unused_optional_binding
+  - weak_delegate
+
+# Included: Paths to include during linting (if specified, others are excluded)
+included:
+  - Sources
+  - Tests
+
+# Excluded: Paths to ignore during linting (overrides included)
+excluded:
+  - Pods
+  - Carthage
+  - .build
+  - DerivedData
+
+# Customize specific rule thresholds and positions
+function_body_length:
+  warning: 100
+  error: 200

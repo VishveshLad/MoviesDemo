@@ -5,9 +5,9 @@
 //  Created by Vishvesh Lad on 30/12/25.
 //
 
+internal import Combine
 import Foundation
 import SwiftUI
-internal import Combine
 
 final class AppRouter: ObservableObject {
     enum AppRoute: Hashable {
@@ -44,7 +44,7 @@ final class AppRouter: ObservableObject {
         path.removeLast(path.count)
     }
         
-    // MARK:  Root replace
+    // MARK: - Root replace
     func replaceRoot(with root: AppRoot) {
         path = NavigationPath()
         self.root = root

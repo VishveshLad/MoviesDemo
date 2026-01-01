@@ -5,8 +5,8 @@
 //  Created by Vishvesh Lad on 30/12/25.
 //
 
-import Foundation
 internal import Combine
+import Foundation
 
 @MainActor
 final class MoviesListViewModel: ObservableObject {
@@ -32,7 +32,7 @@ final class MoviesListViewModel: ObservableObject {
         do {
             let movies = try await self.service.fetchMovies()
             state = movies.isEmpty ? .empty : .loaded(movies)
-        }catch{
+        } catch {
             state = .error(error.localizedDescription)
         }
     }

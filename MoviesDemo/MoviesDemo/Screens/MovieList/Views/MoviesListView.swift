@@ -26,7 +26,7 @@ struct MoviesListView: View {
     @ViewBuilder
     private var content: some View {
         switch viewModel.state {
-        case .idle,.loading:
+        case .idle, .loading:
             ProgressView("Loading...")
         case .empty:
             Text("No movies available.")
@@ -35,7 +35,7 @@ struct MoviesListView: View {
                 Button {
                     container.router.push(.movieDetails(id: movie.id))
                 } label: {
-                    HStack(alignment: .top,spacing: 20){
+                    HStack(alignment: .top, spacing: 20) {
                         AsyncImage(url: URL(string: movie.image?.medium ?? "")) { phase in
                             switch phase {
                             case .empty:
@@ -45,13 +45,13 @@ struct MoviesListView: View {
                                 image
                                     .resizable()
                                     .scaledToFill()
-                                    .frame(width: 60,height: 90)
+                                    .frame(width: 60, height: 90)
                                     .clipped()
                                     .cornerRadius(6)
                             case .failure:
-                                PlaceholderImage().frame(width: 60,height: 90)
+                                PlaceholderImage().frame(width: 60, height: 90)
                             default:
-                                PlaceholderImage().frame(width: 60,height: 90)
+                                PlaceholderImage().frame(width: 60, height: 90)
                             }
                         }
                         VStack(alignment: .leading, spacing: 6) {

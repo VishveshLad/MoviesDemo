@@ -28,7 +28,7 @@ struct MovieDetailView: View {
         case .loading:
             ProgressView()
         case .loaded(let movie):
-            ScrollView{
+            ScrollView {
                 VStack(alignment: .center) {
                     AsyncImage(
                         url: URL(string: movie.image?.original ?? "")
@@ -51,7 +51,6 @@ struct MovieDetailView: View {
                 }.padding()
                 VStack(alignment: .leading, spacing: 16) {
                     
-                    
                     Text(movie.name)
                         .font(.title.bold())
 
@@ -60,7 +59,7 @@ struct MovieDetailView: View {
                             .foregroundColor(.secondary)
                     }
 
-                    Text(movie.summary?.replacingOccurrences(of: "<[^>]+>",with: "",options: .regularExpression) ?? "")
+                    Text(movie.summary?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression) ?? "")
                         .font(.body)
                 }
                 .padding()

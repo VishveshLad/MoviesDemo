@@ -7,15 +7,15 @@
 
 import Foundation
 
-public protocol MovieServiceProtocol{
+public protocol MovieServiceProtocol {
     func fetchMovies() async throws -> [Movie]
     func fetchMovieDetails(id: Int) async throws -> Movie
 }
 
-public final class MovieService: MovieServiceProtocol{
+public final class MovieService: MovieServiceProtocol {
     private let network: NetworkClientProtocol
     
-    public init (network: NetworkClientProtocol = NetworkClient()){
+    public init (network: NetworkClientProtocol = NetworkClient()) {
         self.network = network
     }
     
@@ -27,5 +27,3 @@ public final class MovieService: MovieServiceProtocol{
         return try await network.request(.showDetails(id: id))
     }
 }
-
-

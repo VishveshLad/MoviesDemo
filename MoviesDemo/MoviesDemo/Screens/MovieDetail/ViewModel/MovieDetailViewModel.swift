@@ -5,8 +5,8 @@
 //  Created by Vishvesh Lad on 30/12/25.
 //
 
-import Foundation
 internal import Combine
+import Foundation
 
 final class MovieDetailViewModel: ObservableObject {
     enum ViewState {
@@ -29,7 +29,7 @@ final class MovieDetailViewModel: ObservableObject {
         do {
             let movie = try await self.service.fetchMovieDetails(id: movieId)
             self.state = .loaded(movie)
-        }catch {
+        } catch {
             state = .error(error.localizedDescription)
         }
     }

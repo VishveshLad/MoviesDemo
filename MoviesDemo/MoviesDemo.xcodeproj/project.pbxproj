@@ -84,6 +84,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3D1201B92F05E47F00C5174F /* PBXTargetDependency */,
 				3D8E2B1F2F058A3B003A6DCB /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
@@ -107,6 +108,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3D1201B72F05E47700C5174F /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
 				3DBB03B92F0416910002DF76 /* MoviesDemo */,
@@ -146,6 +148,9 @@
 			);
 			mainGroup = 3DBB03AE2F0416910002DF76;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				3DFB25012F05DEFC00531D86 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 3DBB03B82F0416910002DF76 /* Products */;
 			projectDirPath = "";
@@ -192,6 +197,14 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		3D1201B72F05E47700C5174F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 3D1201B62F05E47700C5174F /* SwiftLintBuildToolPlugin */;
+		};
+		3D1201B92F05E47F00C5174F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 3D1201B82F05E47F00C5174F /* SwiftLintBuildToolPlugin */;
+		};
 		3D8E2B1F2F058A3B003A6DCB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 3DBB03B62F0416910002DF76 /* MoviesDemo */;
@@ -452,6 +465,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3DFB25012F05DEFC00531D86 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SimplyDanny/SwiftLintPlugins";
+			requirement = {
+				kind = exactVersion;
+				version = 0.62.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3D1201B62F05E47700C5174F /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3DFB25012F05DEFC00531D86 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+		3D1201B82F05E47F00C5174F /* SwiftLintBuildToolPlugin */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3DFB25012F05DEFC00531D86 /* XCRemoteSwiftPackageReference "SwiftLintPlugins" */;
+			productName = "plugin:SwiftLintBuildToolPlugin";
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3DBB03AF2F0416910002DF76 /* Project object */;
 }

@@ -5,9 +5,9 @@
 //  Created by Vishvesh Lad on 30/12/25.
 //
 
+internal import Combine
 import Foundation
 import SwiftUI
-internal import Combine
 
 final class AppContainer: ObservableObject {
     // Core
