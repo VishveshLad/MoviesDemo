@@ -15,7 +15,7 @@ public protocol MovieServiceProtocol {
 public final class MovieService: MovieServiceProtocol {
     private let network: NetworkClientProtocol
     
-    public init (network: NetworkClientProtocol = NetworkClient()) {
+    public init (network: NetworkClientProtocol) {
         self.network = network
     }
     

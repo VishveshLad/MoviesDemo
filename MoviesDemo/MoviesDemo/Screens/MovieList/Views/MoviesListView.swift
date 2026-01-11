@@ -73,5 +73,5 @@ struct MoviesListView: View {
 }
 
 #Preview {
-    MoviesListView(viewModel: MoviesListViewModel(service: MovieService()))
+    MoviesListView(viewModel: MoviesListViewModel(service: MovieService(network: NetworkClient())))
 }

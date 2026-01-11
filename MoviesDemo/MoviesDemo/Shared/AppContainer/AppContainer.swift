@@ -13,10 +13,12 @@ final class AppContainer: ObservableObject {
     // Core
     let router: AppRouter
     let network: NetworkClientProtocol
+    let reachability: NetworkReachability
     
-    init(router: AppRouter, network: NetworkClientProtocol = NetworkClient()) {
+    init(router: AppRouter, network: NetworkClientProtocol = NetworkClient(), reachability: NetworkReachability = NetworkReachability()) {
         // Core
         self.router = router
         self.network = network
+        self.reachability = reachability
     }
 }

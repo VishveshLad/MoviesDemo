@@ -10,6 +10,7 @@ import SwiftUI
 struct RootView: View {
     @EnvironmentObject var container: AppContainer
     @EnvironmentObject var router: AppRouter
+    @State private var alert: AppAlert?
     
     var body: some View {
         NavigationStack(path: $router.path) {
@@ -20,6 +21,15 @@ struct RootView: View {
         }.onChange(of: router.path) { _, _ in
             print("###### PATH CHANGED ######")
             router.syncAfterNativePop()
+        }.onChange(of: container.reachability.status) { _, networkStatus in
+            manageAlert(networkStatus: networkStatus)
+        }.alert(item: $alert) { alert in
+            Alert(
+                title: Text(alert.title),
+                message: Text(alert.message),
+                dismissButton: .default(Text("OK"))
+            )
+
         }
     }
 }
@@ -42,6 +52,14 @@ private extension RootView {
             MovieDetailView(viewModel: MovieDetailViewModel(movieId: id, service: MovieService(network: container.network)))
         case .moreDetails(id: let id):
             MoreDetails(movieId: id)
+        }
+    }
+    
+    func manageAlert(networkStatus: NetworkReachability.NetworkStatus) {
+        if networkStatus == .disconnected {
+            self.alert = AppAlert(title: "No Internet Connection", message: "Please check your internet connection and try again.")
+        } else {
+            self.alert = nil
         }
     }
 }
